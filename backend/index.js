@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import quizRoutes from './routes/quizRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,6 +16,8 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/', quizRoutes);
+app.use('/auth', authRoutes);
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URL)
